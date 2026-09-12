@@ -1,0 +1,538 @@
+/* ============================================================
+   IyaPay — base.css
+   Tema: branco + roxo
+   ============================================================ */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --primaria: #450d79;
+    --primaria-escura: #2e0854;
+    --secundaria: #8400ff;
+    --bg: #ffffff;
+    --bg-suave: #f7f2fc;
+    --linha: #e9ddf9;
+
+    --text: #ffffff;
+    --text2: #1a1023;
+    --text-gray: #6b6478;
+
+    --raio: 12px;
+    --sombra: 0 4px 20px -6px rgba(69, 13, 121, 0.25);
+    --transicao: 0.25s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text2);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); }
+h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin-bottom: 0.5rem; }
+
+p { color: var(--text-gray); }
+
+a { text-decoration: none; color: inherit; }
+
+/* ---------------- utilitários ---------------- */
+
+.max_width {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 10px 1.5rem;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.row2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text_size { font-size: 0.95rem; }
+
+.text_gray { color: var(--text-gray); }
+
+.text_center { text-align: center; }
+
+.p-10 { padding: 10px; }
+
+/* ---------------- header ---------------- */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--linha);
+}
+
+header h2 {
+    color: var(--primaria);
+    font-size: 1.4rem;
+}
+
+/* ---------------- botões ---------------- */
+
+.button {
+    text-decoration: none;
+    color: var(--text);
+    background-color: var(--primaria);
+    padding: 13px 24px;
+    font-size: 0.85rem;
+    border: 0;
+    border-radius: var(--raio);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    font-weight: bold;
+    transition: transform var(--transicao), box-shadow var(--transicao), background var(--transicao);
+    box-shadow: 0 4px 14px -4px rgba(69, 13, 121, 0.5);
+}
+
+.button:hover {
+    background-color: var(--primaria-escura);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -6px rgba(69, 13, 121, 0.55);
+}
+
+.button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.button:focus-visible {
+    outline: 3px solid var(--secundaria);
+    outline-offset: 2px;
+}
+
+.button2 {
+    background-color: var(--secundaria);
+    box-shadow: 0 4px 14px -4px rgba(132, 0, 255, 0.5);
+}
+
+.button2:hover {
+    background-color: #6d00d1;
+    box-shadow: 0 8px 20px -6px rgba(132, 0, 255, 0.55);
+}
+
+/* ---------------- inputs / formulário ---------------- */
+
+.entry { display: flex; }
+
+.input {
+    padding: 13px 16px;
+    border-radius: var(--raio);
+    border: 1.5px solid transparent;
+    background-color: #ffffff;
+    font-size: 0.95rem;
+    transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--secundaria);
+    box-shadow: 0 0 0 4px rgba(132, 0, 255, 0.15);
+}
+
+.input_dark {
+    border: 1.5px solid var(--linha);
+}
+
+.form_center {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ---------------- hero ---------------- */
+
+.s_hero {
+    background: linear-gradient(160deg, var(--primaria-escura), var(--primaria) 55%, #6c1fb8);
+    color: var(--text);
+    position: relative;
+    overflow: hidden;
+}
+
+.s_hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(255,255,255,0.06), transparent 45%);
+    pointer-events: none;
+}
+
+.hero {
+    min-height: 440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+    max-width: 640px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: subirEntrar 0.8s ease both;
+}
+
+.hero .input {
+        width: 100%;
+}
+
+.form_hero {
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.hero p.text_gray {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------------- seção "sobre / problema" ---------------- */
+
+.sobre {
+    padding: 3rem 1.5rem;
+    margin: 20px auto;
+}
+
+.sobre h3 {
+    color: var(--primaria);
+}
+
+.list_view {
+    margin-top: 1rem;
+}
+
+.list_view span {
+    padding: 1.1rem 1.4rem;
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    font-size: 0.95rem;
+    background: #fff;
+    border-left: 3px solid var(--secundaria);
+    transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.list_view span:hover {
+    transform: translateX(4px);
+    box-shadow: 0 6px 22px -6px rgba(69, 13, 121, 0.3);
+}
+
+/* ---------------- cards (passos e funcionalidades) ---------------- */
+
+section > .max_width > h3,
+section > .max_width.column > h3 {
+    color: var(--primaria);
+}
+
+.content_cards {
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.content_cards .card {
+    box-shadow: var(--sombra);
+    padding: 1.6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    border-radius: var(--raio);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, color 0.35s ease;
+    font-size: 0.95rem;
+    min-height: 150px;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid var(--linha);
+}
+
+.content_cards .card strong {
+    color: var(--primaria);
+    font-size: 1.05rem;
+}
+
+.content_cards .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px -8px rgba(69, 13, 121, 0.35);
+}
+
+.content_cards .card.ative {
+    background: linear-gradient(160deg, var(--primaria), var(--primaria-escura));
+    color: var(--text);
+    border: none;
+}
+
+.content_cards .card.ative strong {
+    color: #fff;
+}
+
+.content_cards .card.ative p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.content_cards .card.ative:hover {
+    box-shadow: 0 14px 34px -8px rgba(69, 13, 121, 0.55);
+}
+
+/* grid responsivo para a segunda leva de cards (row2) */
+section .row2.content_cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
+}
+
+section .column.content_cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* ---------------- destaque "Por que IyaPay" ---------------- */
+
+.content_fg_bx {
+    background: linear-gradient(160deg, var(--primaria-escura), var(--primaria) 60%, #6c1fb8);
+    color: var(--text);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin: 1.5rem auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.content_fg_bx h3 {
+    color: #fff;
+}
+
+.content_fg_bx .infos {
+    max-width: 640px;
+    margin: 0 auto;
+    gap: 0.8rem;
+}
+
+.content_fg_bx p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------------- preço ---------------- */
+
+.price_box {
+    max-width: 420px;
+    margin-top: 1rem;
+    padding: 2.2rem;
+    border-radius: 18px;
+    background: linear-gradient(160deg, var(--primaria-escura), var(--primaria) 60%, #6c1fb8);
+    color: var(--text);
+    gap: 0.6rem;
+    box-shadow: var(--sombra);
+}
+
+.price_value {
+    font-size: 2.4rem;
+    font-weight: 800;
+}
+
+.price_box p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.price_box .button {
+    margin-top: 0.6rem;
+    align-self: flex-start;
+}
+
+/* ---------------- FAQ ---------------- */
+
+.faq_list {
+    margin-top: 1.2rem;
+    gap: 0;
+}
+
+.faq_item {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--linha);
+}
+
+.faq_item summary {
+    cursor: pointer;
+    font-weight: bold;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text2);
+    transition: color var(--transicao);
+}
+
+.faq_item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq_item summary::after {
+    content: "+";
+    color: var(--primaria);
+    font-size: 1.3rem;
+    transition: transform var(--transicao);
+}
+
+.faq_item[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq_item summary:hover {
+    color: var(--primaria);
+}
+
+.faq_item p {
+    margin-top: 0.7rem;
+    animation: abrirFaq 0.25s ease both;
+}
+
+@keyframes abrirFaq {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------- CTA final ---------------- */
+
+#cta {
+    padding: 4rem 0;
+    background: var(--bg-suave);
+}
+
+#cta h3 {
+    color: var(--primaria);
+}
+
+/* ---------------- footer ---------------- */
+
+footer {
+    padding: 1.8rem 0;
+    border-top: 1px solid var(--linha);
+}
+
+footer a {
+    transition: color var(--transicao);
+}
+
+footer a:hover {
+    color: var(--primaria);
+}
+
+/* ---------------- animação de entrada (scroll) ---------------- */
+
+section {
+    padding: 3.5rem 0;
+}
+
+section:not(.s_hero) {
+    animation: subirEntrar 0.6s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+}
+
+@keyframes subirEntrar {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* fallback para navegadores sem suporte a animation-timeline */
+@supports not (animation-timeline: view()) {
+    section:not(.s_hero) {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* respeita usuários que pedem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+}
+
+/* ---------------- responsivo ---------------- */
+
+@media (max-width: 900px) {
+    section .row2.content_cards,
+    section .column.content_cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        max-width: 100%;
+        padding: 3rem 1rem;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    .hero p {
+        font-size: .8rem;
+    }
+
+    .row2 { flex-wrap: wrap; }
+
+    .input {
+        min-width: 80%;
+    }
+
+    section .row2.content_cards,
+    section .column.content_cards {
+        grid-template-columns: 1fr;
+    }
+
+    .content_fg_bx {
+        padding: 2rem 1.2rem;
+    }
+
+    .price_box .button {
+        align-self: stretch;
+        text-align: center;
+        justify-content: center;
+    }
+}
